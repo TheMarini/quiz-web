@@ -1,5 +1,10 @@
 <template>
-  <div class="random-background" :style="{ backgroundImage: `url(${path})` }"></div>
+  <div
+    class="random-background d-flex align-items-end"
+    :style="{ backgroundImage: `url(${path})` }"
+  >
+    <a :href="social" target="_blank" class="p-3 text-muted">{{ author }}</a>
+  </div>
 </template>
 
 <script>
