@@ -1,18 +1,32 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <RandomBackground></RandomBackground>
+    <h1>Olá mundo</h1>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+// import HelloWorld from '@/components/HelloWorld.vue';
+import RandomBackground from '@/components/RandomBackground.vue';
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
+    RandomBackground,
   },
 };
 </script>
+
+<style scoped>
+.home {
+  color: whitesmoke;
+}
+
+.random-background {
+  z-index: -1;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+}
+</style>
