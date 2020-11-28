@@ -21,12 +21,12 @@
         </div>
       </div>
       <div class="row">
-        <div v-for="(quiz, index) in quizzes" :key="index" class="col-sm-12 col-md-6 pb-4">
+        <div v-for="quiz in quizzes" :key="quiz.id" class="col-sm-12 col-md-6 pb-4">
           <Quiz
+            :id="quiz.id"
             :title="quiz.title"
             :qtd-questions="quiz.qtdQuestions"
             :desc="quiz.desc"
-            :path="quiz.path"
           ></Quiz>
         </div>
       </div>
@@ -46,16 +46,16 @@ export default {
     return {
       quizzes: [
         {
+          id: 1,
           title: 'Título do quiz',
           qtdQuestions: 42,
           desc: "Good morning. Thou hast had a good night's sleep, I hope.",
-          path: 'login',
         },
         {
+          id: 2,
           title: 'Título do quiz',
           qtdQuestions: 42,
           desc: "Good morning. Thou hast had a good night's sleep, I hope.",
-          path: 'login',
         },
       ],
     };

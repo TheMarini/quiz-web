@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="path" class="text-reset">
+  <router-link :to="`quiz/${id}`" class="text-reset">
     <div class="quiz m-0 nes-container is-rounded is-dark with-title">
       <p class="title">{{ title }} ({{ textQuestions }})</p>
       <p>{{ desc }}</p>
@@ -11,6 +11,10 @@
 export default {
   name: 'Quiz',
   props: {
+    id: {
+      type: Number,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -20,10 +24,6 @@ export default {
       required: true,
     },
     desc: {
-      type: String,
-      required: true,
-    },
-    path: {
       type: String,
       required: true,
     },
