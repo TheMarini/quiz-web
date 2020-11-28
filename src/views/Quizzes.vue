@@ -17,7 +17,9 @@
           <h4 class="title mb-4">Meus quizzes</h4>
         </div>
         <div class="col-sm-12 col-md-auto">
-          <button type="button" class="m-0 nes-btn is-success">Criar quiz</button>
+          <router-link to="quiz/create" class="text-reset">
+            <button type="button" class="m-0 nes-btn is-success">Criar quiz</button>
+          </router-link>
         </div>
       </div>
       <div class="row">
