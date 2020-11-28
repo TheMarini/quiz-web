@@ -40,12 +40,33 @@
             :class="descClass"
           ></textarea>
         </div>
+        <div class="nes-field form-group">
+          <label for="subject" class="nes-text">Assunto</label>
+          <div class="nes-select is-dark">
+            <select id="subject" v-model="subject">
+              <option value="null" disabled selected hidden>Selecione uma opção...</option>
+              <option value="0">Gerência de Configuração e Evolução de Software</option>
+              <option value="1">Engenharia de Processes de Software</option>
+            </select>
+          </div>
+        </div>
       </section>
       <section class="mt-4">
-        <h4 class="text-blue">Questões</h4>
-        <Question></Question>
+        <header class="row justify-content-between">
+          <div class="col-auto">
+            <h4 class="text-blue">Questões</h4>
+          </div>
+          <div class="col-auto">
+            <h4 class="text-white">
+              {{ qtdQuestions }}
+            </h4>
+          </div>
+        </header>
+        <Question v-for="index in qtdQuestions" :key="index"></Question>
         <div class="d-flex justify-content-center">
-          <button type="button" class="m-0 nes-btn is-primary">Adicionar questão</button>
+          <button type="button" class="m-0 nes-btn is-primary mb-4" @click="qtdQuestions++">
+            Adicionar questão
+          </button>
         </div>
       </section>
     </form>
@@ -66,6 +87,8 @@ export default {
       createdAt: '28/11/2020',
       title: null,
       desc: null,
+      subject: null,
+      qtdQuestions: 0,
     };
   },
   computed: {
@@ -76,6 +99,9 @@ export default {
     descClass() {
       if (this.desc !== null) return this.desc.length !== 0 ? 'is-success' : 'is-error';
       return '';
+    },
+    subjectClass() {
+      return this.subject !== null ? 'is-success' : '';
     },
   },
 };
