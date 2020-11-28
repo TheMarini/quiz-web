@@ -30,4 +30,8 @@ a:hover {
   /* background-color: #222; */
   /* color: #fff !important; */
 }
+
+.text-blue {
+  color: #2ab7ca;
+}
 </style>
