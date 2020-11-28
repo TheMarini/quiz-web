@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import LoginRegister from '../views/LoginRegister.vue';
+import Quizzes from '../views/Quizzes.vue';
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,11 @@ const routes = [
     name: 'Register',
     component: LoginRegister,
     props: { login: false },
+  },
+  {
+    path: '/quiz',
+    name: 'Quizzes',
+    component: Quizzes,
   },
   { path: '*', redirect: '/' },
 ];
