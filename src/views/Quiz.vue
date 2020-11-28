@@ -7,7 +7,7 @@
         </router-link>
       </div>
       <div class="col-auto">
-        <router-link to="create" class="text-reset">
+        <router-link to="" class="text-reset">
           <button type="button" class="m-0 nes-btn is-success">Salvar</button>
         </router-link>
       </div>
@@ -43,14 +43,23 @@
       </section>
       <section class="mt-4">
         <h4 class="text-blue">Questões</h4>
+        <Question></Question>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="m-0 nes-btn is-primary">Adicionar questão</button>
+        </div>
       </section>
     </form>
   </div>
 </template>
 
 <script>
+import Question from '@/components/Question.vue';
+
 export default {
   name: 'Quiz',
+  components: {
+    Question,
+  },
   data() {
     return {
       author: 'Bruno Marini',
