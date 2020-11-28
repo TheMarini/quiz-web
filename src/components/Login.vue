@@ -5,7 +5,14 @@
       <form class="text-left">
         <div class="nes-field form-group">
           <label for="login">Login</label>
-          <input id="login" v-model="login" type="text" class="nes-input" placeholder="konami" />
+          <input
+            id="login"
+            v-model="login"
+            autocomplete="off"
+            type="text"
+            class="nes-input"
+            placeholder="konami"
+          />
         </div>
         <div class="nes-field form-group">
           <label for="pwd">Senha</label>
