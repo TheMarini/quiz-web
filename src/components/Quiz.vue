@@ -10,13 +10,23 @@
 <script>
 export default {
   name: 'Quiz',
-  data() {
-    return {
-      path: 'login',
-      title: 'Título do quiz',
-      desc: "Good morning. Thou hast had a good night's sleep, I hope.",
-      qtdQuestions: 42,
-    };
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    qtdQuestions: {
+      type: Number,
+      required: true,
+    },
+    desc: {
+      type: String,
+      required: true,
+    },
+    path: {
+      type: String,
+      required: true,
+    },
   },
   computed: {
     textQuestions() {

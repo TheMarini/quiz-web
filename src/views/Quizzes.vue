@@ -21,8 +21,13 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <Quiz></Quiz>
+        <div v-for="(quiz, index) in quizzes" :key="index" class="col-sm-12 col-md-6 pb-4">
+          <Quiz
+            :title="quiz.title"
+            :qtd-questions="quiz.qtdQuestions"
+            :desc="quiz.desc"
+            :path="quiz.path"
+          ></Quiz>
         </div>
       </div>
     </article>
@@ -36,6 +41,24 @@ export default {
   name: 'Quizzes',
   components: {
     Quiz,
+  },
+  data() {
+    return {
+      quizzes: [
+        {
+          title: 'Título do quiz',
+          qtdQuestions: 42,
+          desc: "Good morning. Thou hast had a good night's sleep, I hope.",
+          path: 'login',
+        },
+        {
+          title: 'Título do quiz',
+          qtdQuestions: 42,
+          desc: "Good morning. Thou hast had a good night's sleep, I hope.",
+          path: 'login',
+        },
+      ],
+    };
   },
 };
 </script>
