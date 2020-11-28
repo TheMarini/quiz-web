@@ -24,6 +24,7 @@
             :disabled="btnDisabled"
             class="nes-btn btn-block"
             :class="btnClass"
+            :title="btnDisabled ? 'Preencha todos os campos' : ''"
             @click="doLogin"
           >
             Entrar
