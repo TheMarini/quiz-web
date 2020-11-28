@@ -1,7 +1,7 @@
 <template>
   <router-link :to="path" class="text-reset">
     <div class="quiz m-0 nes-container is-rounded is-dark with-title">
-      <p class="title">{{ title }}</p>
+      <p class="title">{{ title }} ({{ textQuestions }})</p>
       <p>{{ desc }}</p>
     </div>
   </router-link>
@@ -15,7 +15,15 @@ export default {
       path: 'login',
       title: 'Título do quiz',
       desc: "Good morning. Thou hast had a good night's sleep, I hope.",
+      qtdQuestions: 42,
     };
+  },
+  computed: {
+    textQuestions() {
+      const qtd = this.qtdQuestions;
+      if (qtd === 0) return 'nenhuma questão';
+      return qtd === 1 ? `${qtd} questão` : `${qtd} questões`;
+    },
   },
 };
 </script>
