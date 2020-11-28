@@ -8,6 +8,9 @@
       </div>
       <div class="col-auto">
         <router-link to="" class="text-reset">
+          <button type="button" class="m-0 nes-btn is-primary">Compartilhar</button>
+        </router-link>
+        <router-link to="" class="text-reset">
           <button type="button" class="m-0 nes-btn is-success">Salvar</button>
         </router-link>
       </div>
