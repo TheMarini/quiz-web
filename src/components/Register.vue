@@ -53,7 +53,14 @@
           >
         </div>
         <div class="d-flex">
-          <button type="button" class="nes-btn btn-block is-success" @click="register">
+          <button
+            type="button"
+            :disabled="btnDisabled"
+            class="nes-btn btn-block"
+            :class="btnClass"
+            :title="btnDisabled ? 'Preencha todos os campos' : ''"
+            @click="register"
+          >
             Registrar
           </button>
         </div>
@@ -99,10 +106,10 @@ export default {
     },
     btnDisabled() {
       return (
-        this.name.length === 0 ||
-        this.login.length === 0 ||
-        this.pwd.length === 0 ||
-        this.pwdRepeat.length === 0
+        this.nameClass !== 'is-success' ||
+        this.loginClass !== 'is-success' ||
+        this.pwdClass !== 'is-success' ||
+        this.pwdRepeatClass !== 'is-success'
       );
     },
     btnClass() {
