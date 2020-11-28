@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Login from '../views/Login.vue';
+import LoginRegister from '../views/LoginRegister.vue';
 
 Vue.use(VueRouter);
 
@@ -12,7 +12,13 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: Login,
+    component: LoginRegister,
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: LoginRegister,
+    props: { login: false },
   },
   {
     path: '/about',
@@ -22,6 +28,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
+  { path: '*', redirect: '/' },
 ];
 
 const router = new VueRouter({
