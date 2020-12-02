@@ -1,5 +1,25 @@
 <template>
   <div class="quiz container py-4">
+    <Modal :show.sync="modalShow" @confirm="createSubject" @close="newSubject = null">
+      <template #title> Adicionar assunto </template>
+      <template #body>
+        <form class="mt-4">
+          <div class="form-group">
+            <div class="nes-field form-group">
+              <label for="subject">Nome do assunto</label>
+              <input
+                id="subject"
+                v-model="newSubject"
+                type="text"
+                class="nes-input"
+                placeholder="konami"
+              />
+            </div>
+          </div>
+        </form>
+      </template>
+    </Modal>
+
     <header class="mb-4 text-white row justify-content-between">
       <div class="col-auto">
         <router-link to="/quiz" class="text-reset">
@@ -43,14 +63,26 @@
             :class="descClass"
           ></textarea>
         </div>
-        <div class="nes-field form-group">
-          <label for="subject" class="nes-text">Assunto</label>
-          <div class="nes-select is-dark">
-            <select id="subject" v-model="subject">
-              <option value="null" disabled selected hidden>Selecione uma opção...</option>
-              <option value="0">Gerência de Configuração e Evolução de Software</option>
-              <option value="1">Engenharia de Processes de Software</option>
-            </select>
+        <div class="form-row">
+          <div class="col-sm-12 col-md-9">
+            <div class="nes-field form-group">
+              <label for="subject" class="nes-text">Assunto</label>
+              <div class="nes-select is-dark">
+                <select id="subject" v-model="subject">
+                  <option value="null" disabled selected hidden>Selecione uma opção...</option>
+                  <option value="0">Gerência de Configuração e Evolução de Software</option>
+                  <option value="1">Engenharia de Processes de Software</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <div class="nes-field form-group">
+              <label for="subject" class="nes-text d-sm-none d-md-block">⠀</label>
+              <button type="button" class="m-0 w-100 nes-btn is-warning" @click="modalShow = true">
+                Novo assunto
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -78,11 +110,13 @@
 
 <script>
 import Question from '@/components/Question.vue';
+import Modal from '@/components/Modal.vue';
 
 export default {
   name: 'Quiz',
   components: {
     Question,
+    Modal,
   },
   data() {
     return {
@@ -92,6 +126,8 @@ export default {
       desc: null,
       subject: null,
       qtdQuestions: 0,
+      modalShow: false,
+      newSubject: null,
     };
   },
   computed: {
@@ -106,6 +142,9 @@ export default {
     subjectClass() {
       return this.subject !== null ? 'is-success' : '';
     },
+  },
+  methods: {
+    createSubject() {},
   },
 };
 </script>
