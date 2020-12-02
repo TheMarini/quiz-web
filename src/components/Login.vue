@@ -59,7 +59,9 @@ export default {
     },
   },
   methods: {
-    doLogin() {},
+    doLogin() {
+      this.$router.push('quiz');
+    },
   },
 };
 </script>

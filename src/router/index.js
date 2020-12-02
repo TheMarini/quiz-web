@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import LoginRegister from '../views/LoginRegister.vue';
+import Quizzes from '../views/Quizzes.vue';
+import Quiz from '../views/Quiz.vue';
 
 Vue.use(VueRouter);
 
@@ -21,12 +23,14 @@ const routes = [
     props: { login: false },
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    path: '/quiz',
+    name: 'Quizzes',
+    component: Quizzes,
+  },
+  {
+    path: '/quiz/:id',
+    name: 'Quiz',
+    component: Quiz,
   },
   { path: '*', redirect: '/' },
 ];
